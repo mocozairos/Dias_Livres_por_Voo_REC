@@ -1,0 +1,7 @@
+streamlit==1.37.0
+pandas==2.0.3
+numpy==1.26.4
+mysql-connector==2.2.9
+mysql-connector-python==9.0.0
+streamlit-aggrid==1.0.5
+matplotlib==3.8.4
