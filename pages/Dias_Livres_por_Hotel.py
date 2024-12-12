@@ -236,7 +236,7 @@ with row1[0]:
 
     data_inicial = container_datas.date_input('Data Inicial', value=None ,format='DD/MM/YYYY', key='data_inicial')
 
-    data_final = container_datas.date_input('Data Inicial', value=None ,format='DD/MM/YYYY', key='data_final')
+    data_final = container_datas.date_input('Data Final', value=None ,format='DD/MM/YYYY', key='data_final')
 
 # Pegando reservas que tenham TRF IN dentro do período
 
