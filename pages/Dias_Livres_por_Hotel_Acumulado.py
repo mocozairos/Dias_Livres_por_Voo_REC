@@ -90,8 +90,8 @@ def inserir_datas_in_out_voo_in(df_in):
 
 def contabilizar_servicos_por_reserva(df_in_out):
 
-    df_tour_transfer = st.session_state.df_router[(st.session_state.df_router['Tipo de Servico'].isin(['TOUR', 'TRANSFER'])) & (st.session_state.df_router['Reserva Mae'].isin(lista_reservas_in))]\
-        .reset_index(drop=True)
+    df_tour_transfer = st.session_state.df_router[(st.session_state.df_router['Tipo de Servico'].isin(['TOUR', 'TRANSFER'])) & (st.session_state.df_router['Reserva Mae'].isin(lista_reservas_in)) & 
+                                                  (st.session_state.df_router['Data Execucao']>date.today())].reset_index(drop=True)
 
     df_tour_transfer_group = df_tour_transfer.groupby(['Data Execucao', 'Reserva Mae'])['Servico'].count().reset_index()
 
@@ -107,7 +107,7 @@ def contabilizar_servicos_por_reserva(df_in_out):
 
 def calcular_estadia_dias_livres(df_in_out):
 
-    df_in_out['Dias Estadia'] = (pd.to_datetime(df_in_out['Data OUT']) - pd.to_datetime(df_in_out['Data IN'])).dt.days
+    df_in_out['Dias Estadia'] = (pd.to_datetime(df_in_out['Data OUT']) - pd.to_datetime(date.today())).dt.days
 
     df_in_out['Dias Estadia'] = df_in_out['Dias Estadia'].fillna(media_estadia)
 
