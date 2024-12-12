@@ -100,7 +100,7 @@ def puxar_dados_phoenix():
     st.session_state.df_router_2 = st.session_state.df_router_2[(st.session_state.df_router_2['Status do Servico']!='CANCELADO') & (st.session_state.df_router_2['Status da Reserva']!='CANCELADO') & 
                                                             (st.session_state.df_router_2['Status da Reserva']!='PENDENCIA DE IMPORTAÇÃO') & 
                                                             (~pd.isna(st.session_state.df_router_2['Status do Servico'])) & 
-                                                            (~st.session_state.df_router['Servico'].str.upper().str.contains('COMBO FLEX'))].reset_index(drop=True)
+                                                            (~st.session_state.df_router_2['Servico'].str.upper().str.contains('COMBO FLEX'))].reset_index(drop=True)
 
     st.session_state.df_router_2['Data Execucao'] = pd.to_datetime(st.session_state.df_router_2['Data Execucao'])
 
